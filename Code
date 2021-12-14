@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <math.h>
+
+#define  Gravity  9.81
+
+double yuskeklikbul(int V, float angle){
+
+    double radian, Vy;
+
+    radian = angle * (M_PI / 180.0);
+    
+    Vy=V*sinf(radian);
+
+    double sure = Vy/Gravity;
+
+    double yukseklik = (Vy * sure) - (0.5 * Gravity * sure * sure);
+    
+    return yukseklik;
+}
+
+double menzilbul(int V, float angle){
+
+    double radian, Vx, Vy;
+
+    radian = angle * (M_PI / 180.0);
+
+    Vy=V*sinf(radian);
+    
+    Vx=V*cosf(radian);
+
+    double sure = Vy/Gravity;
+
+    double menzil=2*sure*Vx;
+
+    return menzil;
+}
+
+int main() {
+
+    printf("%.3f\n", yuskeklikbul(30, 50));
+
+    printf("%.3f", menzilbul(30, 50));
+
+    return 0;    
+}
